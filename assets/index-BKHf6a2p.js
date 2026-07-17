@@ -1,4 +1,4 @@
-import{r as u,a as _e,c as Le,g as Ct,R as Lt}from"./vendor-react-KfUPlHYY.js";import{_ as Me}from"./jspdf-CWyUxaYh.js";import{P as Et,D as St}from"./vendor-docx-BQfReEt-.js";(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const i of document.querySelectorAll('link[rel="modulepreload"]'))r(i);new MutationObserver(i=>{for(const n of i)if(n.type==="childList")for(const c of n.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&r(c)}).observe(document,{childList:!0,subtree:!0});function a(i){const n={};return i.integrity&&(n.integrity=i.integrity),i.referrerPolicy&&(n.referrerPolicy=i.referrerPolicy),i.crossOrigin==="use-credentials"?n.credentials="include":i.crossOrigin==="anonymous"?n.credentials="omit":n.credentials="same-origin",n}function r(i){if(i.ep)return;i.ep=!0;const n=a(i);fetch(i.href,n)}})();var xt={exports:{}},Ae={};/**
+import{r as u,a as _e,c as Le,g as Ct,R as Lt}from"./vendor-react-KfUPlHYY.js";import{_ as Me}from"./jspdf-CWyUxaYh.js";import{P as Et,D as St}from"./vendor-docx-DiPgUJLT.js";(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const i of document.querySelectorAll('link[rel="modulepreload"]'))r(i);new MutationObserver(i=>{for(const n of i)if(n.type==="childList")for(const c of n.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&r(c)}).observe(document,{childList:!0,subtree:!0});function a(i){const n={};return i.integrity&&(n.integrity=i.integrity),i.referrerPolicy&&(n.referrerPolicy=i.referrerPolicy),i.crossOrigin==="use-credentials"?n.credentials="include":i.crossOrigin==="anonymous"?n.credentials="omit":n.credentials="same-origin",n}function r(i){if(i.ep)return;i.ep=!0;const n=a(i);fetch(i.href,n)}})();var xt={exports:{}},Ae={};/**
  * @license React
  * react-jsx-runtime.production.min.js
  *
@@ -190,15 +190,29 @@ ${E.tools.map((X,se)=>`${se+1}. **${X.name}**: ${X.description}`).join(`
         justify-content: center;
         flex-wrap: wrap;
         gap: 0.2em;
-        filter: drop-shadow(0 2px 10px rgba(116, 172, 223, 0.55))
-                drop-shadow(0 1px 0 rgba(255,255,255,0.85));
+        /* sombra oscura: legible en modo claro; glow en oscuro */
+        filter: drop-shadow(0 1px 0 rgba(30, 70, 120, 0.45))
+                drop-shadow(0 2px 3px rgba(30, 70, 120, 0.35))
+                drop-shadow(0 0 12px rgba(116, 172, 223, 0.55));
       }
       .arg-banner-title-text {
-        background: linear-gradient(90deg, #74ACDF 0%, #FFFFFF 45%, #74ACDF 100%);
+        /* sin blanco puro: en fondo claro se perdía */
+        background: linear-gradient(90deg, #3D8BC8 0%, #8EC4E8 45%, #3D8BC8 100%);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
         -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: 0.5px rgba(40, 90, 140, 0.35);
+      }
+      .dark .arg-banner-title-text {
+        background: linear-gradient(90deg, #74ACDF 0%, #E8F4FC 45%, #74ACDF 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-stroke: 0;
+      }
+      .dark .arg-banner-title {
+        filter: drop-shadow(0 2px 10px rgba(116, 172, 223, 0.65))
+                drop-shadow(0 1px 0 rgba(255,255,255,0.35));
       }
       .arg-banner-emoji {
         display: inline-block;
